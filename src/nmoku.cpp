@@ -1,11 +1,10 @@
 #include "board.h"
 #include "user.h"
 #include "utils.h"
-#include <iostream>
 #include <vector>
 using namespace std;
 int main() {
-  const int boardSize = 20;
+  const int boardSize = 5;
   const int requiredLength = 5;
   Board board(boardSize, requiredLength);
 
@@ -17,19 +16,12 @@ int main() {
   do {
     board.show();
     player = players[turn];
-    prompt(player);
     do {
       player->move();
     } while (!board.isValidMove(*player));
     board.update(*player);
-    turn = 1 - turn;
     board.verticalLine();
+    turn = 1 - turn;
   } while (board.isOngoing());
-  if (board.isDraw()) {
-    cout << "引き分け" << endl;
-    board.show();
-    return 0;
-  }
-  showWinner(player);
-  board.show();
+  showResult(board, player);
 }

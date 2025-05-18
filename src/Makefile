@@ -10,9 +10,6 @@ all: $(TARGET)
 $(TARGET): $(OBJECTS)
 	$(CXX) $(CXXFLAGS) $(OBJECTS) -o $@
 
-# .cpp ファイルから .o ファイルを生成するルール（暗黙のルールに頼る）
-# %.o: %.cpp
-# 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 # 依存関係ファイルを生成するルール
 %.d: %.cpp

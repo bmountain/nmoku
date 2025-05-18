@@ -185,6 +185,8 @@ bool isConsecutive(vector<string> chars, string c) {
 
 bool Board::isValidMove(const Player &player) const {
   const int choice = player.getNumber();
+  if (choice < 0 || choice >= size * size)
+    return false;
   const string cellContent = cells[choice / size][choice % size];
   return isNumber(cellContent);
 }

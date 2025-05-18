@@ -2,3 +2,5 @@
 *.d
 *.o
 nmoku
+docs/*
+!*.gitkeep
